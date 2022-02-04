@@ -1,16 +1,31 @@
 package seony.calendar;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Calendar {
 	public static void main(String[] args) {
-		// 숫자를 입력 받아 해당하는 달의 최대 일수를 출력하는 프로그램
 		Scanner sc = new Scanner(System.in);
 		Calendar cl = new Calendar();
-		System.out.println("달을 입력하세요.");
-		int month = sc.nextInt();
+		System.out.println("반복횟수를 입력하세요.");
+		int loop = sc.nextInt();
+		System.out.println("월을 입력하세요.");
+		ArrayList<Integer> array = new ArrayList<Integer>();
+		int i = loop;
+		while(i>0) {
+			array.add(sc.nextInt());
+			i--;
+		}
+		for(i = 0; i<loop; i++) {
+			cl.printMaxDays(array.get(i));
+			System.out.println();
+		}
+	}
+	
+	public void printMaxDays(int month) {
+		// 숫자를 입력 받아 해당하는 달의 최대 일수를 출력하는 프로그램
+		Calendar cl = new Calendar();
 		System.out.printf("%d월은 %d일까지 있습니다.", month, cl.maxdays(month));
-		sc.close();
 	}
 	
 	public void printSampleCalendar() {
